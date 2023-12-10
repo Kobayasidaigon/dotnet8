@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyMVCapp.Models;
@@ -6,7 +7,13 @@ public class Category
 {
     [Key]
     public int Id { get; set; }
+
     [Required]
-    public string Name { get; set; }
+    [MaxLength(30)]
+    [DisplayName("Display Name")]
+    public string Name { get; set; } = "";
+
+    [Range(1,100)]
+    [DisplayName("Display Order")]
     public int DisplayOrder { get; set; }
 }

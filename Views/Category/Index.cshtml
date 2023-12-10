@@ -1,1 +1,38 @@
-﻿<h1>Category List</h1>
+﻿@model List<Category>
+
+<form method="post">
+    <div class="contaier">
+        <div class="row pt-4 pb-3">
+            <div class="col-6">
+                <h2 class="text-primary">
+                    Category List
+                </h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Create new Category
+                </a>
+            </div>
+        </div>
+
+        <h1>Category List</h1>
+
+        <table class="table table-bprdered table-striped">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Order</th>
+                </tr>
+            </thead>
+            <thead>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Name</td>
+                        <td>@obj.DisplayOrder</td>
+                    </tr>
+                }
+            </thead>
+        </table>
+    </div>
+</form>
